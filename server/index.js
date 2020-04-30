@@ -22,7 +22,21 @@ app.post('/api/items', (req,res) => {
       res.status(201);
       res.end();
     }
-  })
+  });
+});
+
+app.get('/api/items/:id',(req, res) => {
+  db.getItem(req.params.id, (err, data) => {
+    if(err){
+      console.log('error: '+err);
+      res.status(400);
+      res.end();
+    } else {
+      console.log('success');
+      res.send(data);
+      res.end()
+    }
+  });
 });
 
 
