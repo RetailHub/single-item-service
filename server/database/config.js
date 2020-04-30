@@ -21,7 +21,12 @@ var createItem = function(obj, cb = () => {}){
     else{cb(null,'congrats')}
   });
 }
-
+var deleteAll = function(){
+  Item.deleteMany({},(err) => {
+    if (err){console.log(err);}
+  })
+}
 module.exports  = {
-  createItem
+  createItem,
+  deleteAll
 };

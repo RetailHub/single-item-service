@@ -8,6 +8,7 @@
   "scripts": {
     "build": "webpack --config prod.config.js",
     "start": "nodemon server/",
+    "seed":"node server/scripts/seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
