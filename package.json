@@ -8,8 +8,8 @@
   "scripts": {
     "build": "webpack --config prod.config.js -w",
     "start": "nodemon server/",
-    "seed":"node server/scripts/seed",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "seed": "node server/scripts/seed",
+    "test": "jest server/test/"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -27,7 +27,10 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "eslint-plugin-import": "^2.20.2",
     "jest": "^25.5.2",
     "webpack": "^4.43.0"
   }
