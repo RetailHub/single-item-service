@@ -4,6 +4,7 @@ const app = express();
 const port = 3001;
 const bodyParser = require('body-parser');
 const db = require('./database/config');
+const faker = require('./scripts/dummyData');
 
 
 app.use(express.static(path.join(__dirname,'../public/')));
