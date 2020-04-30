@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AltImageContainer from './components/altImageContainer.jsx';
+import MainImageContainer from './components/mainImageContainer.jsx';
+
 
 
 class SingleItemPage extends React.Component{
@@ -10,8 +13,9 @@ class SingleItemPage extends React.Component{
 
   render(){
     return(
-      <div>
-        Single Page App
+      <div className='single-item_container'>
+        <AltImageContainer/>
+        <MainImageContainer/>
       </div>
     )
   }

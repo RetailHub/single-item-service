@@ -6,7 +6,7 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config prod.config.js",
+    "build": "webpack --config prod.config.js -w",
     "start": "nodemon server/",
     "seed":"node server/scripts/seed",
     "test": "echo \"Error: no test specified\" && exit 1"
