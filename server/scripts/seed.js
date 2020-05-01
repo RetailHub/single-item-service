@@ -2,11 +2,11 @@ const db = require('../database/config.js');
 const Data = require('./dummyData.js');
 
 
-const clearTable = async function(){
+const clearTables = async function(){
   await db.deleteAll();
 }
 
-clearTable();
+clearTables();
 
 const seedCollection = async function(){
   var collection = {};
