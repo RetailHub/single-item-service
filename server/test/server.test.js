@@ -34,18 +34,17 @@ describe(" Test api/items/:id endpoint", function(){
 
  });
 
- test("It should  contain correct array items", async (done) => {
-  const mainImage = [
-    "https://i.picsum.photos/id/492/200/200.jpg",
-    "https://i.picsum.photos/id/493/200/200.jpg",
-    "https://i.picsum.photos/id/494/200/200.jpg",
-    "https://i.picsum.photos/id/495/200/200.jpg"
-  ];
- const response = await request(app).get('/api/items/98');
- mainImage.forEach(image => {
-   expect(response.body.altImages).toContain(image);
- })
- done();
-});
-
+  test("It should  contain correct array items", async (done) => {
+    const mainImage = [
+      "https://i.picsum.photos/id/492/200/200.jpg",
+      "https://i.picsum.photos/id/493/200/200.jpg",
+      "https://i.picsum.photos/id/494/200/200.jpg",
+      "https://i.picsum.photos/id/495/200/200.jpg"
+    ];
+  const response = await request(app).get('/api/items/98');
+  mainImage.forEach(image => {
+    expect(response.body.altImages).toContain(image);
+  })
+    done();
+  });
 });
