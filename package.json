@@ -8,8 +8,8 @@
   "scripts": {
     "build": "webpack --config prod.config.js -w",
     "start": "nodemon server/",
-    "seed":"node server/scripts/seed",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "seed": "node server/scripts/seed",
+    "test": "jest server/test/ --detectOpenHandles"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -19,6 +19,7 @@
     "mongoose": "^5.9.10",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "supertest": "^4.0.2",
     "webpack-cli": "^3.3.11"
   },
   "devDependencies": {
