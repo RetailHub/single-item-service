@@ -6,24 +6,21 @@ import React from 'react';
 const AltImageContainer = (props) => {
   return(
     <div className='alt-image_container'>
-      <span className='alt-image_first'>
-        <img class="alt-image" src ='https://images-na.ssl-images-amazon.com/images/I/41QcU%2B6BccL._AC_US40_.jpg'/>
-      </span>
-      <span className='alt-image_first'>
-        <img class="alt-image" src ='https://images-na.ssl-images-amazon.com/images/I/41audZPOZLL._AC_US40_.jpg'/>
-      </span>
-      <span className='alt-image_first'>
-        <img class="alt-image" src ='https://images-na.ssl-images-amazon.com/images/I/41mG-mn4PIL._AC_US40_.jpg'/>
-      </span>
-      <span className='alt-image_first'>
-        <img class="alt-image" src ='https://images-na.ssl-images-amazon.com/images/I/410NuhzF55L._AC_US40_.jpg'/>
-      </span>
-      <span className='alt-image_first'>
-        <img class="alt-image" src ='https://images-na.ssl-images-amazon.com/images/I/41TTEXkxFoL._AC_US40_.jpg'/>
-      </span>
-      <span className='alt-image_last'>
-        <img class="alt-image" src ='https://images-na.ssl-images-amazon.com/images/I/412XFyCZZhL._AC_US40_.jpg'/>
-      </span>
+      {props.images.map((image,counter) => {
+        if(counter === 5){
+          return (
+            <span className='alt-image_last'>
+              <img className="alt-image"  value={counter} onMouseEnter={props.onHoverAlt} src ={image}/>
+           </span>
+          )
+        } else {
+          return (
+            <span className='alt-image_first'>
+              <img className="alt-image" value={counter} onMouseEnter={props.onHoverAlt} src ={image}/>
+            </span>
+          )
+        }
+      })}
     </div>
   )
 }
