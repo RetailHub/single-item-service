@@ -7,7 +7,10 @@ const MainImageContainer = (props) => {
   return(
     <div className='main-image_container'>
       <span>
-        <img className='main-image'src='https://images-na.ssl-images-amazon.com/images/I/81pQhZZ2BkL._AC_UX675_.jpg'/>
+        <img className='main-image' onMouseMove={props.onHover} onMouseLeave={props.onLeave} src={props.image}/>
+        <div id='mags' style={{top:props.y,left:props.x}}>
+
+        </div>
       </span>
     </div>
   )
