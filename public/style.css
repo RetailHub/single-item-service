@@ -3,7 +3,11 @@ body{
 }
 
 .single-item_container{
+<<<<<<< HEAD
   width: 80%;
+=======
+  width: 60%;
+>>>>>>> fb3b39581e9e785062b20316ead6f6d624d0ef30
   margin: 10% auto;
   text-align: center;
   display: flex;
