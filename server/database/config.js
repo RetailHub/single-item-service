@@ -1,20 +1,23 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable no-console */
+/* eslint-disable func-names */
 const mongoose = require('mongoose');
-var uri = 'mongodb://localhost:27017/singleItemPage?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false';
-mongoose.connect(uri,{useNewUrlParser: true});
-const Schema = mongoose.Schema;
 
-var db = mongoose.connection;
+const uri = 'mongodb://localhost:27017/singleItemPage?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false';
+mongoose.connect(uri, { useNewUrlParser: true });
+const { Schema } = mongoose;
 
-var itemSchema = new Schema({
+
+const itemSchema = new Schema({
   itemId: Number,
   mainImage: String,
-  altImages: [String]
+  altImages: [String],
 });
 
-var Item = mongoose.model('Items', itemSchema);
+const Item = mongoose.model('Items', itemSchema);
 
-var createItem = function(obj, cb = () => {}){
-  var item = new Item(obj);
+const createItem = function (obj, cb = () => {}) {
+  const item = new Item(obj);
 
   item.save((err) => {
     if(err){cb(err, null)}
