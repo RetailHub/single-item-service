@@ -24,7 +24,9 @@ app.post('/api/items', (req,res) => {
   });
 });
 
+
 app.get('/api/items/:id',(req, res) => {
+  console.log('helo')
   db.getItem(req.params.id, (err, data) => {
     if(err){
       console.log('error: '+err);
@@ -36,6 +38,9 @@ app.get('/api/items/:id',(req, res) => {
     }
   });
 });
+app.get('/:id', (req, res) => {
+  res.sendFile(path.join(__dirname,'../public/'));
+})
 
 
 
