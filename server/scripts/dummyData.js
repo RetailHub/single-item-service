@@ -2,16 +2,18 @@ const axios = require('axios');
 
 var data = [];
 var counter = 100;
-for(var i = 0; i < 100; i++){
-  var obj = {
-    itemId: i,
-    mainImage:`https://i.picsum.photos/id/${i}/200/200.jpg`,
-    altImages:[]
+var arr = [];
+for(var i = 1; i <= 101; i++){
+  if(arr.length !== 5){
+    arr.push(`https://single-page-items.s3.us-east-2.amazonaws.com/img${i}.jpg`);
+  } else {
+    var obj = {
+      altImages: arr
+    }
+    data.push(obj);
+    arr = [];
+    arr.push(`https://single-page-items.s3.us-east-2.amazonaws.com/img${i}.jpg`);
   }
-  for(var k = 0; k < 4;k++){
-    obj.altImages.push(`https://i.picsum.photos/id/${counter}/200/200.jpg`);
-    counter++;
-  }
-  data.push(obj);
 }
+
 module.exports = data;
