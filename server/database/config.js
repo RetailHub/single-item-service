@@ -19,27 +19,25 @@ const createItem = function (obj, cb = () => {}) {
   const item = new Item(obj);
 
   item.save((err) => {
-    if(err){cb(err, null)}
-    else{cb(null,'congrats')}
+    if (err) { cb(err, null); } else { cb(null, 'congrats'); }
   });
 };
-var deleteAll = function(){
-  Item.deleteMany({},(err) => {
-    if (err){console.log(err);}
+const deleteAll = function () {
+  Item.deleteMany({}, (err) => {
+    if (err) { console.log(err); }
   });
 };
-var getItem = (id,cb) => {
-  Item.findOne({itemId: id}, function(err, item){
-    if(err){
+const getItem = (id, cb) => {
+  Item.findOne({ itemId: id }, (err, item) => {
+    if (err) {
       return cb(err, null);
-    } else{
-      return cb(null, item);
     }
+    return cb(null, item);
   });
 };
 
-module.exports  = {
+module.exports = {
   createItem,
   deleteAll,
-  getItem
+  getItem,
 };
