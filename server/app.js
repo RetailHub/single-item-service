@@ -1,4 +1,8 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable space-infix-ops */
+/* eslint-disable linebreak-style */
+/* eslint-disable no-console */
+/* eslint-disable linebreak-style */
 const express = require('express');
 const path = require('path');
 
@@ -25,10 +29,10 @@ app.post('/api/items', (req, res) => {
 });
 
 
-app.get('/api/items/:id',(req, res) => {
+app.get('/api/items/:id', (req, res) => {
   db.getItem(req.params.id, (err, data) => {
     if (err) {
-      console.log('error: '+err);
+      console.log(err);
       res.status(400);
       res.end();
     } else {
