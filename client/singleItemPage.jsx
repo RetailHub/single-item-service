@@ -35,7 +35,9 @@ class SingleItemPage extends React.Component{
 
   }
   componentDidMount(){
-    var id = window.location.href.slice(22, window.location.href.length);
+    const params = new URLSearchParams(document.location.search.substring(1));
+    const id = params.get('id') || 0;
+
     get(id, (data) => {
         this.setState({
           image:data.altImages[0],
