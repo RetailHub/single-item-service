@@ -31,7 +31,7 @@ class SingleItemPage extends React.Component{
     this.onHoverAlt = this.onHoverAlt.bind(this);
     this.onHoverMain = this.onHoverMain.bind(this);
     this.onLeaveMain = this.onLeaveMain.bind(this);
-
+    this.exit = this.exit.bind(this);
 
   }
   componentDidMount(){
@@ -47,6 +47,8 @@ class SingleItemPage extends React.Component{
   }
   onHoverMain(e){
     var modal = document.getElementById('modal-image');
+    var modalContainer = document.getElementById('modal-container');
+    modalContainer.classList.remove('none');
     var valueX = -Math.abs(e.clientX)+350;
     var valueY = -Math.abs(e.clientY)+150;
 
@@ -56,13 +58,18 @@ class SingleItemPage extends React.Component{
         sX: Math.abs(e.clientX),
         sY: Math.abs(e.clientY)
       });
-      console.log('hello');
   }
 
 onLeaveMain(e){
+  // var modalContainer = document.getElementById('modal-container');
+  // modalContainer.classList.add('none');
   this.setState({
     hovering: false
   });
+}
+exit(){
+  var modalContainer = document.getElementById('modal-container');
+  modalContainer.classList.add('none');
 }
   onHoverAlt(e){
     var index = e.target.getAttribute('value');
@@ -79,7 +86,7 @@ onLeaveMain(e){
     return(
       <div className='single-item_container'>
         <AltImageContainer images = {this.state.mainImages} onHoverAlt = {this.onHoverAlt}/>
-        <MainImageContainer image={this.state.image} onHover={this.onHoverMain} onLeave={this.onLeaveMain}x={this.state.sX} y={this.state.sY}/>
+        <MainImageContainer image={this.state.image} exit={this.exit}onHover={this.onHoverMain} onLeave={this.onLeaveMain}x={this.state.sX} y={this.state.sY}/>
          <ModalContainer image={this.state.image} x={this.state.x} y={this.state.y}/>
       </div>
     )

@@ -72,3 +72,9 @@ body{
   height: 110px;
   position: absolute;
 }
+.none{
+  display: none;
+}
+.block{
+  display: block;
+}
