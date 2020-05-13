@@ -49,20 +49,25 @@ class SingleItemPage extends React.Component{
     var modal = document.getElementById('modal-image');
     var modalContainer = document.getElementById('modal-container');
     modalContainer.classList.remove('none');
+    var mags = document.getElementById('mags');
+    mags.classList.remove('none');
     var valueX = -Math.abs(e.clientX)+350;
     var valueY = -Math.abs(e.clientY)+150;
+    e.persist(e.clientX);
+    e.persist(e.clientY);
 
-      this.setState({
-        x:valueX,
-        y:valueY,
-        sX: Math.abs(e.clientX),
-        sY: Math.abs(e.clientY)
+      requestAnimationFrame(() => {
+        this.setState({
+          x:valueX,
+          y:valueY,
+          sX: Math.abs(e.clientX),
+          sY: Math.abs(e.clientY)
+        });
       });
+
   }
 
 onLeaveMain(e){
-  // var modalContainer = document.getElementById('modal-container');
-  // modalContainer.classList.add('none');
   this.setState({
     hovering: false
   });
