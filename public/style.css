@@ -51,7 +51,7 @@ body{
 .modal{
   position: absolute;
   top:150px;
-  left: 650px;
+  left: 600px;
   overflow: hidden;
   background-color: white;
   z-index: 199;
