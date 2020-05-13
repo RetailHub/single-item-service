@@ -3,8 +3,6 @@ body{
 }
 
 .single-item_container{
-  width: 80%;
-  margin: 10% auto;
   text-align: center;
   display: flex;
 }
@@ -31,6 +29,7 @@ body{
   width: 40px;
   height: 40px;
   margin-bottom: 10px;
+  object-fit: cover;
 }
 .alt-image_last{
   width: 40px;
@@ -45,6 +44,8 @@ body{
 .main-image{
   max-width: 565px;
   max-height: 471px;
+  object-fit: cover;
+
 }
 
 .modal{
