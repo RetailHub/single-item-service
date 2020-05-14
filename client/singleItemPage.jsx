@@ -4,6 +4,7 @@ import AltImageContainer from './components/altImageContainer.jsx';
 import MainImageContainer from './components/mainImageContainer.jsx';
 import ModalContainer from './components/modalContainer.jsx';
 import $ from 'jquery';
+import style from './css/style.css';
 
 
 var get = function(id,success){
@@ -36,7 +37,7 @@ class SingleItemPage extends React.Component{
   }
   componentDidMount(){
     const params = new URLSearchParams(document.location.search.substring(1));
-    const id = params.get('id') || 0;
+    const id = params.get('id') || 1;
 
     get(id, (data) => {
         this.setState({
@@ -48,9 +49,9 @@ class SingleItemPage extends React.Component{
   onHoverMain(e){
     var modal = document.getElementById('modal-image');
     var modalContainer = document.getElementById('modal-container');
-    modalContainer.classList.remove('none');
-    var mags = document.getElementById('mags');
-    mags.classList.remove('none');
+    modalContainer.classList.remove(style.none);
+    var mags = document.getElementById(style.mags);
+    mags.classList.remove(style.none);
     var valueX = -Math.abs(e.clientX)+350;
     var valueY = -Math.abs(e.clientY)+150;
     e.persist(e.clientX);
@@ -74,14 +75,14 @@ onLeaveMain(e){
 }
 exit(){
   var modalContainer = document.getElementById('modal-container');
-  modalContainer.classList.add('none');
+  modalContainer.classList.add(style.none);
 }
   onHoverAlt(e){
     var index = e.target.getAttribute('value');
     if(this.state.selected.classList){
-      this.state.selected.classList.remove('selected');
+      this.state.selected.classList.remove(style.selected);
     }
-    e.target.classList.add('selected');
+    e.target.classList.add(style.selected);
     this.setState({
       image: this.state.mainImages[index],
       selected:e.target
@@ -89,7 +90,7 @@ exit(){
   }
   render(){
     return(
-      <div className='single-item_container'>
+      <div className={style.singleItemContainer}>
         <AltImageContainer images = {this.state.mainImages} onHoverAlt = {this.onHoverAlt}/>
         <MainImageContainer image={this.state.image} exit={this.exit}onHover={this.onHoverMain} onLeave={this.onLeaveMain}x={this.state.sX} y={this.state.sY}/>
          <ModalContainer image={this.state.image} x={this.state.x} y={this.state.y}/>
