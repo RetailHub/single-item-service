@@ -1,51 +1,55 @@
-body{
-  margin: 0;
-}
 
-.single-item_container{
+.singleItemContainer{
   text-align: center;
   display: flex;
 }
 
-.alt-image_container{
+.altImageContainer{
   width: 42px;
   display: flex;
   flex-direction: column;
 }
-.alt-image{
+
+.altImage{
   width: 40px;
   border: 1px solid #a2a6ac;
   border-radius: 2px;
   height: 40px;
   cursor: pointer;
-
-}
-.selected{
-  border-color: #e77600;
-  box-shadow: 0 0 3px 2px rgba(228, 121, 17, .5);
-  outline: 0;
-}
-.alt-image{
-  width: 40px;
-  height: 40px;
   margin-bottom: 10px;
   object-fit: cover;
 }
-.alt-image_last{
+
+.altImageLast{
+  width: 40px;
+  border: 1px solid #a2a6ac;
+  border-radius: 2px;
+  height: 40px;
+  cursor: pointer;
   width: 40px;
   height: 40px;
+  object-fit: cover;
 }
-.main-image_container{
+
+.mainImageContainer{
   padding-left: 2%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.main-image{
+
+.mainImage{
   max-width: 565px;
   max-height: 471px;
   object-fit: cover;
+}
 
+#mags{
+  background-image:url('https://images-na.ssl-images-amazon.com/images/G/01/apparel/rcxgs/tile._CB483');
+  cursor: pointer;
+  width: 227px;
+  height: 110px;
+  position: absolute;
 }
 
 .modal{
@@ -65,21 +69,22 @@ body{
   z-index: 10000;
 }
 
-.modal > img{
-  display: block;
-  position: relative;
-}
-
-#mags{
-  background-image:url('https://images-na.ssl-images-amazon.com/images/G/01/apparel/rcxgs/tile._CB483');
-  cursor: pointer;
-  width: 227px;
-  height: 110px;
-  position: absolute;
-}
 .none{
   display: none;
 }
+
+.selected{
+  border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgba(228, 121, 17, .5);
+  outline: 0;
+}
+
+
 .block{
   display: block;
+}
+
+.modal > img{
+  display: block;
+  position: relative;
 }

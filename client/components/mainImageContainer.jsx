@@ -1,15 +1,15 @@
 import React from 'react';
-
+import style from '../css/style.css';
 
 
 
 const MainImageContainer = (props) => {
+  console.log(style);
   return(
-    <div className='main-image_container' onMouseLeave={props.exit}>
+    <div className={style.mainImageContainer} onMouseLeave={props.exit}>
       <span>
-        <img className='main-image' onMouseMove={props.onHover} onMouseLeave={props.onLeave} src={props.image}/>
-        <div id='mags' class='none'style={{top:props.y,left:props.x}}>
-
+        <img className={style.mainImage} onMouseMove={props.onHover} onMouseLeave={props.onLeave} src={props.image}/>
+        <div id={style.mags} class={style.none}style={{top:props.y,left:props.x}}>
         </div>
       </span>
     </div>
