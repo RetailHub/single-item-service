@@ -10,12 +10,11 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('./database/config');
 
-
 app.use(express.static(path.join(__dirname, '../public/')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
+// CREATE ROUTE
 app.post('/api/items', (req, res) => {
   db.createItem(req.body, (err) => {
     if (err) {
@@ -28,7 +27,7 @@ app.post('/api/items', (req, res) => {
   });
 });
 
-
+// READ ROUTES
 app.get('/api/items/:id', (req, res) => {
   db.getItem(req.params.id, (err, data) => {
     if (err) {
@@ -41,8 +40,23 @@ app.get('/api/items/:id', (req, res) => {
     }
   });
 });
+
 app.get('/:id', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/'));
 });
+
+// UPDATE ROUTE
+app.patch('/api/items/:id', (req, res) => {
+  const { image } = req.body;
+  db.updateItem(req.params.id, image, (err, data) => {
+    if (err) {
+      res.status(400).send('Unable to update');
+    } else {
+      res.status(204).send(data);
+    }
+  });
+});
+
+// DELETE ROUTE
 
 module.exports = app;
