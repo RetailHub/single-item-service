@@ -3,7 +3,7 @@
 /* eslint-disable func-names */
 const mongoose = require('mongoose');
 
-const uri = 'mongodb://localhost:27017/singleItemPage?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false';
+const uri = 'mongodb://localhost/singleItemPage';
 mongoose.connect(uri,
   {
     useNewUrlParser: true,
@@ -61,9 +61,20 @@ const deleteAll = () => {
   });
 };
 
+const deleteOne = (id, cb) => {
+  console.log(id);
+  Item.findOneAndDelete({ itemId: id }, (err, query) => {
+    if (err) {
+      return cb(err);
+    }
+    return cb(null, query);
+  });
+};
+
 module.exports = {
   createItem,
   getItem,
   updateItem,
   deleteAll,
+  deleteOne,
 };

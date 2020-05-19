@@ -46,11 +46,11 @@ app.get('/:id', (req, res) => {
 });
 
 // UPDATE ROUTE
-app.patch('/api/items/:id', (req, res) => {
+app.patch('/update/:id', (req, res) => {
   const { image } = req.body;
   db.updateItem(req.params.id, image, (err, data) => {
     if (err) {
-      res.status(400).send('Unable to update');
+      res.status(404).send('Unable to update');
     } else {
       res.status(204).send(data);
     }
@@ -58,5 +58,17 @@ app.patch('/api/items/:id', (req, res) => {
 });
 
 // DELETE ROUTE
+app.delete('/remove/:id', (req, res) => {
+  console.log('hello');
+  console.log(req.params.id);
+  db.deleteOne(req.params.id, (err, result) => {
+    if (err) {
+      res.status(404).send('Unable to delete');
+    } else {
+      console.log(result);
+      res.status(200).send(result);
+    }
+  });
+});
 
 module.exports = app;
