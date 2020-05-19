@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config prod.config.js -w",
-    "start": "node server/",
+    "start": "nodemon server/ --watch",
     "seed": "node server/scripts/seed",
     "test": "jest server/test/ --detectOpenHandles"
   },
@@ -36,6 +36,7 @@
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "eslint-plugin-import": "^2.20.2",
     "jest": "^25.5.2",
+    "nodemon": "^2.0.4",
     "webpack": "^4.43.0"
   }
 }
