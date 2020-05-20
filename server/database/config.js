@@ -8,7 +8,7 @@ mongoose.connect(uri,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
   });
 const { Schema } = mongoose;
 
