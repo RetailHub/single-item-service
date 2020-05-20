@@ -3,8 +3,13 @@
 /* eslint-disable func-names */
 const mongoose = require('mongoose');
 
-const uri = 'mongodb://localhost:27017/singleItemPage?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false';
-mongoose.connect(uri, { useNewUrlParser: true });
+const uri = 'mongodb://localhost/singleItemPage';
+mongoose.connect(uri,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  });
 const { Schema } = mongoose;
 
 
@@ -22,11 +27,7 @@ const createItem = function (obj, cb = () => {}) {
     if (err) { cb(err, null); } else { cb(null, 'congrats'); }
   });
 };
-const deleteAll = function () {
-  Item.deleteMany({}, (err) => {
-    if (err) { console.log(err); }
-  });
-};
+
 const getItem = (id, cb) => {
   Item.findOne({ itemId: id }, (err, item) => {
     if (err) {
@@ -36,8 +37,44 @@ const getItem = (id, cb) => {
   });
 };
 
+const updateItem = (id, image, cb) => {
+  Item.findOneAndUpdate({ itemId: id },
+    {
+      $push: {
+        altImages: image,
+      },
+    },
+    {
+      new: true,
+      upsert: true,
+    }, (err, item) => {
+      if (err) {
+        return cb(err);
+      }
+      return cb(null, item);
+    });
+};
+
+const deleteAll = () => {
+  Item.deleteMany({}, (err) => {
+    if (err) { console.log(err); }
+  });
+};
+
+const deleteOne = (id, cb) => {
+  console.log(id);
+  Item.findOneAndDelete({ itemId: id }, (err, query) => {
+    if (err) {
+      return cb(err);
+    }
+    return cb(null, query);
+  });
+};
+
 module.exports = {
   createItem,
-  deleteAll,
   getItem,
+  updateItem,
+  deleteAll,
+  deleteOne,
 };
