@@ -42,9 +42,9 @@ app.get('/api/items/:id', (req, res) => {
   });
 });
 
-// app.get('/:id', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../public/'));
-// });
+app.get('/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/'));
+});
 
 // UPDATE ROUTE
 app.patch('/api/items/:id', (req, res) => {
