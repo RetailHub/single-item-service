@@ -19,7 +19,7 @@ class DataGenerator {
       indexArr.push(this.getRandomInt(i, 100));
     }
 
-    indexArr.forEach(index => {
+    indexArr.forEach((index) => {
       result.push(this.altImages[index]);
     });
 
