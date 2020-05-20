@@ -9,6 +9,7 @@
     "build": "webpack --config prod.config.js -w",
     "start": "node server/",
     "seed": "node server/scripts/seed",
+    "seed-db": "node --max_old_space_size=12288 server/csv/createcsv.js",
     "test": "jest server/test/ --detectOpenHandles"
   },
   "dependencies": {
