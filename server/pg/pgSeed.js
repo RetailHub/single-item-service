@@ -16,6 +16,6 @@ const productImages = path.join(__dirname, '../database/images.csv');
 pool.connect()
   .then(() => console.log('Inserting from CSVs'))
   .then(() => pool.query('DELETE FROM items'))
-  .then(() => pool.query(`COPY items FROM '${productImages}' DELIMITER '|' CSV`))
+  .then(() => pool.query(`COPY items FROM '${productImages}' DELIMITER '|' CSV HEADER`))
   .then(() => console.log('Finished inserting!'))
   .catch((err) => console.error('ERROR: ', err));
