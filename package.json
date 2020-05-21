@@ -9,6 +9,7 @@
     "build": "webpack --config prod.config.js -w",
     "start": "node server/",
     "seed": "node server/scripts/seed",
+    "seed-db": "node --max_old_space_size=12288 server/csv/createcsv.js",
     "test": "jest server/test/ --detectOpenHandles"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "faker": "^4.1.0",
     "jquery": "^3.5.1",
     "mongoose": "^5.9.10",
+    "pg": "^8.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "style-loader": "^1.2.1",
