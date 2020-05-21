@@ -25,4 +25,4 @@ build/
 dist/
 
 # Data/CSV
-.CSV
+*.csv
