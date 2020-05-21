@@ -19,7 +19,7 @@ const writeImages = (writer, encoding, cb) => {
       let itemId = id;
       let altImages = dg.generateImageArray();
 
-      let data = `${itemId}, [${altImages}] \n`;
+      let data = `${itemId}| {${altImages}} \n`;
 
       if (i === 0) {
         writer.write(data, encoding, cb);

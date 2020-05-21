@@ -15,5 +15,6 @@ const productImages = path.join(__dirname, '/pgImages.csv');
 
 pool.connect()
   .then(() => console.log('Inserting from CSVs'))
-  .then(() => pool.query(`COPY items FROM '${productImages}' CSV`))
+  .then(() => pool.query(`COPY items FROM '${productImages}' DELIMITER '|' CSV`))
+  .then(() => console.log('Finished inserting!'))
   .catch((err) => console.error('ERROR: ', err));
