@@ -26,7 +26,7 @@ client.connect()
     console.log('Table successfully created!');
   })
   .then(() => {
-    client.execute(`COPY items FROM ${cassandracsv} with DELIMITER '|'`);
+    client.execute(`COPY items FROM ${cassandracsv} with DELIMITER '|' AND HEADER=TRUE`);
   })
   .then(() => {
     console.log('Cassandra seeded!');
