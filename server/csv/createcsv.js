@@ -5,7 +5,8 @@ const DataGenerator = require('./csvhelpers.js');
 
 const dg = new DataGenerator();
 
-const writeUsers = fs.createWriteStream('./server/database/images.csv');
+const createImages = fs.createcreateStream('./server/database/images.csv');
+createImages.write('itemid | altImages');
 
 const writeImages = (writer, encoding, cb) => {
   let i = 10000000;
@@ -34,6 +35,6 @@ const writeImages = (writer, encoding, cb) => {
   write();
 };
 
-writeImages(writeUsers, 'utf-8', () => {
-  writeUsers.end();
+writeImages(createImages, 'utf-8', () => {
+  createImages.end();
 });
