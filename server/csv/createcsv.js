@@ -5,7 +5,7 @@ const DataGenerator = require('./csvhelpers.js');
 
 const dg = new DataGenerator();
 
-const writeUsers = fs.createWriteStream('pgImages.csv');
+const writeUsers = fs.createWriteStream('./server/pg/pgImages.csv');
 
 const writeImages = (writer, encoding, cb) => {
   let i = 10000000;
