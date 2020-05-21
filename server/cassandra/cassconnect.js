@@ -18,9 +18,11 @@ client.connect()
   .then(() => {
     client.execute(`
     CREATE TABLE IF NOT EXISTS items (
-      itemId BIGINT PRIMARY KEY,
+      itemId VARINT PRIMARY KEY,
       altImages list<text>
-    )`);
+    )
+
+    CREATE INDEX IF NOT EXISTS ON items (itemId)`);
   })
   .then(() => {
     console.log('Table successfully created!');
