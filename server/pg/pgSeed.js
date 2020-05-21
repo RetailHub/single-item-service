@@ -11,7 +11,7 @@ const pool = new Pool({
   port: '5432',
 });
 
-const productImages = path.join(__dirname, '/csvFile/pgImages.csv');
+const productImages = path.join(__dirname, '/pgImages.csv');
 
 pool.connect()
   .then(() => console.log('Inserting from CSVs'))

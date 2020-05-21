@@ -15,7 +15,7 @@ class DataGenerator {
     const indexArr = [];
     const result = [];
 
-    let randomLength = this.getRandomInt(1, 5);
+    const randomLength = this.getRandomInt(1, 5);
 
     for (let i = 0; i < randomLength; i += 1) {
       indexArr.push(this.getRandomInt(i, 20));
