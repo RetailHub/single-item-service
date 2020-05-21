@@ -1,4 +1,5 @@
 const { Client } = require('cassandra-driver');
+const path = require('path');
 
 const client = new Client({
   contactPoints: ['127.0.0.1'],
@@ -6,18 +7,27 @@ const client = new Client({
   keyspace: 'singleitems',
 });
 
+const cassandracsv = path.join(__dirname, '../database/images.csv');
+
 client.connect()
   .then(() => {
     console.log('Successful connection to Cassandra');
   })
   .then(() => {
-    client.execute(`CREATE TABLE IF NOT EXISTS items (
+    client.execute(`
+    CREATE TABLE IF NOT EXISTS items (
       itemId BIGINT PRIMARY KEY,
       altImages list<text>
     )`);
   })
   .then(() => {
     console.log('Table successfully created!');
+  })
+  .then(() => {
+    client.execute(`COPY items FROM ${cassandracsv}`);
+  })
+  .then(() => {
+    console.log('Cassandra seeded!');
   })
   .catch((err) => {
     console.error('ERROR: ', err);
