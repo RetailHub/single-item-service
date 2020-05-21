@@ -5,7 +5,7 @@ const DataGenerator = require('./csvhelpers.js');
 
 const dg = new DataGenerator();
 
-const createImages = fs.createcreateStream('./server/database/images.csv');
+const createImages = fs.createWriteStream('./server/database/images.csv');
 createImages.write('itemid | altImages');
 
 const writeImages = (writer, encoding, cb) => {
