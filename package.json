@@ -7,14 +7,17 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config prod.config.js -w",
+    "csv": "node --max_old_space_size=12288 server/csv/createcsv.js",
     "start": "node server/",
     "seed": "node server/scripts/seed",
-    "seed-db": "node --max_old_space_size=12288 server/csv/createcsv.js",
+    "seedcass": "node server/cassandra/cassconnect.js",
+    "seedpg": "node server/pg/pgSeed.js",
     "test": "jest server/test/ --detectOpenHandles"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "cassandra-driver": "^4.5.2",
     "css-loader": "^3.5.3",
     "express": "^4.17.1",
     "faker": "^4.1.0",
