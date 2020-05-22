@@ -22,7 +22,7 @@ class DataGenerator {
     }
 
     indexArr.forEach((index) => {
-      result.push(`${this.altImages[index]}`);
+      result.push(`'${this.altImages[index]}'`);
     });
 
     return result;
