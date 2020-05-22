@@ -15,14 +15,14 @@ class DataGenerator {
     const indexArr = [];
     const result = [];
 
-    const randomLength = this.getRandomInt(2, 5);
+    const randomLength = this.getRandomInt(1, 5);
 
     for (let i = 0; i < randomLength; i += 1) {
       indexArr.push(this.getRandomInt(i, 20));
     }
 
     indexArr.forEach((index) => {
-      result.push(`"${this.altImages[index]}"`);
+      result.push(`'${this.altImages[index]}'`);
     });
 
     return result;

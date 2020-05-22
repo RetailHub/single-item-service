@@ -10,7 +10,8 @@
     "csv": "node --max_old_space_size=12288 server/csv/createcsv.js",
     "start": "node server/",
     "seed": "node server/scripts/seed",
-    "seedcass": "node server/cassandra/cassconnect.js",
+    "connectpg": "psql -h localhost -d items -U me -f server/pg/schema.sql",
+    "seedcass": "cqlsh -f ./server/cassandra/schema.cql",
     "seedpg": "node server/pg/pgSeed.js",
     "test": "jest server/test/ --detectOpenHandles"
   },
