@@ -1,15 +1,18 @@
 /* eslint-disable no-console */
 
-const { Client } = require('cassandra-driver');
+const cassandra = require('cassandra-driver');
+
 const path = require('path');
 
-const client = new Client({
+const client = new cassandra.Client({
   contactPoints: ['127.0.0.1'],
   localDataCenter: 'datacenter1',
   keyspace: 'singleitems',
 });
 
 const cassandracsv = path.join(__dirname, '../database/images.csv');
+
+console.log(cassandracsv);
 
 client.connect()
   .then(() => {
@@ -20,18 +23,16 @@ client.connect()
     CREATE TABLE IF NOT EXISTS items (
       itemId VARINT PRIMARY KEY,
       altImages list<text>
-    )
-
-    CREATE INDEX IF NOT EXISTS ON items (itemId)`);
+    )`)
+      .then(() => {
+        console.log('Table successfully created!');
+      });
   })
   .then(() => {
-    console.log('Table successfully created!');
-  })
-  .then(() => {
-    client.execute(`COPY items FROM ${cassandracsv} with DELIMITER '|' AND HEADER=TRUE`);
-  })
-  .then(() => {
-    console.log('Cassandra seeded!');
+    client.execute(`COPY items FROM '${cassandracsv}' WITH DELIMITER '|' AND HEADER=TRUE`)
+      .then(() => {
+        console.log('Cassandra seeded!');
+      });
   })
   .catch((err) => {
     console.error('ERROR: ', err);
