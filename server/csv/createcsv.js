@@ -9,7 +9,7 @@ const createImages = fs.createWriteStream('./server/database/images.csv');
 createImages.write('itemId | altImages \n', 'utf8');
 
 const writeImages = (writer, encoding, cb) => {
-  let i = 3;
+  let i = 10000000;
   let id = 0;
 
   const write = () => {
