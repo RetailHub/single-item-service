@@ -19,7 +19,6 @@
     "body-parser": "^1.19.0",
     "cassandra-driver": "^4.5.2",
     "css-loader": "^3.5.3",
-    "csv-parse": "^4.10.1",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "jquery": "^3.5.1",
@@ -27,7 +26,6 @@
     "pg": "^8.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "stream-transform": "^2.0.2",
     "style-loader": "^1.2.1",
     "supertest": "^4.0.2",
     "webpack-cli": "^3.3.11"
