@@ -7,8 +7,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config prod.config.js -w",
-    "csvcass": "node --max_old_space_size=12288 server/csv/createcsvcass.js",
-    "csvpg": "node --max_old_space_size=12288 server/csv/createcsvpg.js",
+    "csv": "node --max_old_space_size=12288 server/csv/createcsv.js",
     "start": "node server/",
     "seed": "node server/scripts/seed",
     "connectpg": "psql -h localhost -d items -U me -f server/pg/schema.sql",
