@@ -28,12 +28,12 @@ client.connect()
         console.log('Table successfully created!');
       });
   })
-  .then(() => {
-    client.execute(`COPY items FROM '${cassandracsv}' WITH DELIMITER '|' AND HEADER=TRUE`)
-      .then(() => {
-        console.log('Cassandra seeded!');
-      });
-  })
+  // .then(() => {
+  //   client.execute(`COPY items FROM '${cassandracsv}' WITH DELIMITER '|' AND HEADER=TRUE`)
+  //     .then(() => {
+  //       console.log('Cassandra seeded!');
+  //     });
+  // })
   .catch((err) => {
     console.error('ERROR: ', err);
   });
