@@ -7,11 +7,12 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config prod.config.js -w",
-    "csv": "node --max_old_space_size=12288 server/csv/createcsv.js",
+    "csvcass": "node --max_old_space_size=12288 server/csv/createcsvcass.js",
+    "csvpg": "node --max_old_space_size=12288 server/csv/createcsvpg.js",
     "start": "node server/",
     "seed": "node server/scripts/seed",
-    "connectpg": "sql -h localhost -d items -U me -f server/pg/schema.sql",
-    "seedcass": "node server/cassandra/cassconnect.js",
+    "connectpg": "psql -h localhost -d items -U me -f server/pg/schema.sql",
+    "seedcass": "cqlsh -f ./server/cassandra/schema.cql",
     "seedpg": "node server/pg/pgSeed.js",
     "test": "jest server/test/ --detectOpenHandles"
   },
