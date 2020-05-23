@@ -24,6 +24,7 @@ npm run build
 
 ```sh
 npm run csv
+npm run connectpg
 npm run seedpg
 npm run seedcass
 ```
