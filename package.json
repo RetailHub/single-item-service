@@ -7,10 +7,10 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config prod.config.js -w",
+    "connectpg": "psql -h localhost -d items -U me -f server/pg/schema.sql",
     "csv": "node --max_old_space_size=12288 server/csv/createcsv.js",
     "start": "nodemon server/ --watch -i client",
     "seed": "node server/scripts/seed",
-    "connectpg": "psql -h localhost -d items -U me -f server/pg/schema.sql",
     "seedcass": "cqlsh -f ./server/cassandra/schema.cql",
     "seedpg": "node server/pg/pgSeed.js",
     "test": "jest server/test/ --detectOpenHandles"
