@@ -20,6 +20,15 @@ npm start
 npm run build
 ```
 
+## Seeding DB
+
+```sh
+npm run csv
+npm run connectpg
+npm run seedpg
+npm run seedcass
+```
+
 ## CRUD Operations
 | HTTP Verb |           Endpoint          |            Action            |
 |-----------| --------------------------- | ---------------------------- |
