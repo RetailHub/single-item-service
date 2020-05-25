@@ -9,3 +9,15 @@ const client = pgp(options);
 const connection = 'postgres://localhost:5432/items';
 const db = client(connection);
 
+module.exports = {
+  getImages(req, res) {
+    const { id } = req.params;
+    db.one(`SELECT altImages FROM items WHERE itemid = ${id}`)
+      .then((data) => {
+        res.status(200).send(data);
+      })
+      .catch((err) => {
+        return console.error(err);
+      });
+  },
+};

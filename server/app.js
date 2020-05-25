@@ -9,7 +9,7 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const db = require('./database/config');
-const pg = require('./pg/pgIndex');
+const pgp = require('./pg/pgpIndex.js');
 
 app.use(express.static(path.join(__dirname, '../public/')));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,18 +30,7 @@ app.post('/api/items', (req, res) => {
 
 // READ ROUTES
 app.get('/api/items/:id', (req, res) => {
-  // db.getItem(req.params.id, (err, data) => {
-  //   if (err) {
-  //     console.log(err);
-  //     res.status(400);
-  //     res.end();
-  //   } else {
-  //     res.status(200);
-  //     res.send(data);
-  //     res.end();
-  //   }
-  // });
-  pg.getImages(req, res);
+  pgp.getImages(req, res);
 });
 
 app.get('/:id', (req, res) => {
