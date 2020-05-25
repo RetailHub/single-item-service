@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const promise = require('bluebird');
 const pgp = require('pg-promise');
 
@@ -16,8 +18,6 @@ module.exports = {
       .then((data) => {
         res.status(200).send(data);
       })
-      .catch((err) => {
-        return console.error(err);
-      });
+      .catch((err) => console.error(err));
   },
 };
