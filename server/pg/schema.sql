@@ -10,3 +10,5 @@ CREATE TABLE items (
   itemId SERIAL PRIMARY KEY,
   altImages JSON
 );
+
+COPY items FROM '/home/joshskkim/Documents/hrr45/SDC/service/server/database/images.csv' DELIMITER '|' CSV HEADER;
