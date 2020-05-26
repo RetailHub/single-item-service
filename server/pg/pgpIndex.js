@@ -23,7 +23,12 @@ module.exports = {
     const { id } = req.params;
     db.one(`SELECT altImages FROM items WHERE itemid = ${id}`)
       .then((data) => {
-        res.status(200).send(data);
+        const images = [];
+        data.forEach((link) => {
+          images.push(link.slice(1, -1));
+        });
+        console.log(images);
+        res.status(200).send(images);
       })
       .catch((err) => console.error('ERROR GETTING IMAGES: ', err));
   },
