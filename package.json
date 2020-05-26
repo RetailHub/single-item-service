@@ -25,6 +25,7 @@
     "faker": "^4.1.0",
     "jquery": "^3.5.1",
     "mongoose": "^5.9.10",
+    "newrelic": "^6.8.0",
     "nodemon": "^2.0.4",
     "pg": "^8.2.1",
     "pg-promise": "^10.5.6",
