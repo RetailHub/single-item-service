@@ -8,7 +8,7 @@ const path = require('path');
 
 const app = express();
 const bodyParser = require('body-parser');
-const db = require('./database/config');
+// const db = require('./database/config');
 const pgp = require('./pg/pgpIndex.js');
 
 app.use(express.static(path.join(__dirname, '../public/')));
