@@ -17,15 +17,7 @@ app.use(bodyParser.json());
 
 // CREATE ROUTE
 app.post('/api/items', (req, res) => {
-  db.createItem(req.body, (err) => {
-    if (err) {
-      res.status(400);
-      res.end();
-    } else {
-      res.status(201);
-      res.end();
-    }
-  });
+  pgp.createImages(req, res);
 });
 
 // READ ROUTES
