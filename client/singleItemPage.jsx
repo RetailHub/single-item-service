@@ -40,9 +40,10 @@ class SingleItemPage extends React.Component{
     const id = params.get('id') || 1;
 
     get(id, (data) => {
+      console.log(data);
         this.setState({
-          image:data.altImages[0],
-          mainImages:data.altImages
+          image:data[0],
+          mainImages:data
         });
     })
   }
