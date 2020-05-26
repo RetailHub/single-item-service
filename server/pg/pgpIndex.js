@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+/* eslint-disable no-template-curly-in-string */
 
 const promise = require('bluebird');
 const pgp = require('pg-promise');
