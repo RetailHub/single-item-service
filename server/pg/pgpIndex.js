@@ -8,7 +8,13 @@ const options = {
 };
 
 const client = pgp(options);
-const connection = 'postgres://localhost:5432/items';
+const connection = {
+  host: 'localhost',
+  port: 5432,
+  database: 'items',
+  user: 'me',
+  password: 'me',
+};
 const db = client(connection);
 
 module.exports = {
@@ -22,7 +28,8 @@ module.exports = {
   },
 
   createImages(req, res) {
-    db.none('INSERT INTO items(itemId, altImages) VALUES (?, ?)', req.body)
+    console.log(req.body);
+    db.none('INSERT INTO items(itemId, altImages) VALUES (${itemId}, ${altImages})', req.body)
       .then(() => {
         res.status(200).send('successfully inserted images!');
       })
