@@ -28,7 +28,6 @@ module.exports = {
   },
 
   createImages(req, res) {
-    console.log(req.body);
     db.none('INSERT INTO items(itemId, altImages) VALUES (${itemId}, ${altImages})', req.body)
       .then(() => {
         res.status(200).send('successfully inserted images!');
