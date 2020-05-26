@@ -5,6 +5,7 @@
 /* eslint-disable linebreak-style */
 const express = require('express');
 const path = require('path');
+require('newrelic');
 
 const app = express();
 const bodyParser = require('body-parser');
