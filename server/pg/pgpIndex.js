@@ -18,6 +18,14 @@ module.exports = {
       .then((data) => {
         res.status(200).send(data);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error('ERROR GETTING IMAGES: ', err));
+  },
+
+  createImages(req, res) {
+    db.none('INSERT INTO items(itemId, altImages) VALUES (?, ?)', req.body)
+      .then(() => {
+        res.status(200).send('successfully inserted images!');
+      })
+      .catch((err) => console.error('ERROR INSERTING IMAGES: ', err));
   },
 };
