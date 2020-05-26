@@ -25,31 +25,31 @@ app.get('/api/items/:id', (req, res) => {
   pgp.getImages(req, res);
 });
 
-app.get('/:id', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/'));
-});
+// app.get('/:id', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../public/'));
+// });
 
 // UPDATE ROUTE
-app.patch('/api/items/:id', (req, res) => {
-  const { image } = req.body;
-  db.updateItem(req.params.id, image, (err, data) => {
-    if (err) {
-      res.status(404).send('Unable to update');
-    } else {
-      res.status(204).send(data);
-    }
-  });
-});
+// app.patch('/api/items/:id', (req, res) => {
+//   const { image } = req.body;
+//   db.updateItem(req.params.id, image, (err, data) => {
+//     if (err) {
+//       res.status(404).send('Unable to update');
+//     } else {
+//       res.status(204).send(data);
+//     }
+//   });
+// });
 
 // DELETE ROUTE
-app.delete('/api/items/:id', (req, res) => {
-  db.deleteOne(req.params.id, (err, result) => {
-    if (err) {
-      res.status(404).send('Unable to delete');
-    } else {
-      res.status(200).send(result);
-    }
-  });
-});
+// app.delete('/api/items/:id', (req, res) => {
+//   db.deleteOne(req.params.id, (err, result) => {
+//     if (err) {
+//       res.status(404).send('Unable to delete');
+//     } else {
+//       res.status(200).send(result);
+//     }
+//   });
+// });
 
 module.exports = app;
