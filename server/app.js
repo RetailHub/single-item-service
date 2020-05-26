@@ -23,6 +23,14 @@ app.post('/api/items', (req, res) => {
 // READ ROUTES
 app.get('/api/items/:id', (req, res) => {
   pgp.getImages(req, res);
+  // db.getItem(req.params.id, (err, data) => {
+  //   if (err) {
+  //     res.status(400);
+  //   } else {
+  //     console.log(data);
+  //     res.status(200).send(data);
+  //   }
+  // });
 });
 
 // app.get('/:id', (req, res) => {
