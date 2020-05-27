@@ -5,18 +5,21 @@ config:
     - duration: 10
       arrivalRate: 1
       name: "Warm up"
+    - pause: 20
     - duration: 30
       arrivalRate: 1
       rampTo: 10
       maxVusers: 10
       name: "10 users"
-    - duration: 60
+    - pause: 30
+    - duration: 30
       arrivalRate: 10
       rampTo: 100
       maxVusers: 100
       name: "100 users"
-    - duration: 60
-      arrivalRate: 100
+    - pause: 60
+    - duration: 180
+      arrivalRate: 1000
       rampTo: 1000
       maxVusers: 1000
       name: "Sustained max load at 1K"

@@ -33,7 +33,7 @@ module.exports = {
   },
 
   createImages(req, res) {
-    db.none('INSERT INTO items(itemId, altImages) VALUES (${itemId}, ${altImages})', req.body)
+    db.none('INSERT INTO items(itemId, altImages) VALUES (${itemId}, ${altImages}) ON CONFLICT (itemId) DO UPDATE SET altImages = EXCLUDED.altImages', req.body)
       .then(() => {
         res.status(200).send('successfully inserted images!');
       })
