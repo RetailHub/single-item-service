@@ -19,19 +19,25 @@ config:
       name: "100 users"
     - pause: 60
     - duration: 180
-      arrivalRate: 1000
+      arrivalRate: 100
       rampTo: 1000
       maxVusers: 1000
       name: "Sustained max load at 1K"
 scenarios:
-  - flow:
-    - function: "generateRandomData"
-    - get:
-        url: "/api/items/{{id}}"
-    - log: "Sent request to id: {{id}}"
-    - post:
-        url: "/api/items"
-        json:
-          itemId: "{{itemId}}"
-          altImages: "{{altImages}}"
-    - log: "Posted {{itemId}}, {{altImages}}"
+  - name: "Checking out pages"
+    weight: 90
+    flow:
+      - function: "generateRandomPages"
+      - get:
+          url: "/api/items/{{id}}"
+      - log: "Sent request to id: {{id}}"
+  - name: "posting new images"
+    weight: 10
+    flow:
+      - function: "generateRandomData"
+      - post:
+          url: "/api/items"
+          json:
+            itemId: "{{itemId}}"
+            altImages: "{{altImages}}"
+      - log: "Posted {{itemId}}, {{altImages}}"
