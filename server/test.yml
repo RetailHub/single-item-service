@@ -2,7 +2,7 @@ config:
   target: 'http://localhost:3001'
   processor: "./stressgenerator.js"
   phases:
-    - duration: 30
+    - duration: 10
       arrivalRate: 1
       name: "Warm up"
     - duration: 30
@@ -10,12 +10,12 @@ config:
       rampTo: 10
       maxVusers: 10
       name: "10 users"
-    - duration: 120
+    - duration: 60
       arrivalRate: 10
       rampTo: 100
       maxVusers: 100
       name: "100 users"
-    - duration: 120
+    - duration: 60
       arrivalRate: 100
       rampTo: 1000
       maxVusers: 1000
@@ -25,8 +25,10 @@ scenarios:
     - function: "generateRandomData"
     - get:
         url: "/api/items/{{id}}"
+    - log: "Sent request to id: {{id}}"
     - post:
         url: "/api/items"
         json:
           itemId: "{{itemId}}"
           altImages: "{{altImages}}"
+    - log: "Posted {{itemId}}, {{altImages}}"
