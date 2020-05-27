@@ -26,3 +26,6 @@ dist/
 
 # Data/CSV
 *.csv
+
+# Keys
+newrelickey.js
