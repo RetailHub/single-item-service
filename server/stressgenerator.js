@@ -1,20 +1,16 @@
 const faker = require('faker');
 
-const { getSize } = require('./pg/pgpIndex');
+function generateRandomPages(userContext, events, done) {
+  const id = faker.random.number(10000000);
 
-let lastId;
+  userContext.vars.id = id;
 
-function setId(id) {
-  lastId = id;
-  return lastId;
+  return done();
 }
 
-getSize(setId);
-
 function generateRandomData(userContext, events, done) {
-  const id = faker.random.number(10000000);
-  const itemId = lastId + 1;
-  const arrayLength = faker.random.number(1, 5);
+  const itemId = faker.random.number(11000000);
+  const arrayLength = faker.random.number({ min: 1, max: 5 });
   const altImages = [];
 
   for (let i = 0; i < arrayLength; i += 1) {
@@ -22,12 +18,12 @@ function generateRandomData(userContext, events, done) {
     altImages.push(`'https://sdcimages.s3-us-west-1.amazonaws.com/img${imageIndex}.jpg'`);
   }
 
-  userContext.vars.id = id;
   userContext.vars.itemId = itemId;
   userContext.vars.altImages = altImages;
   return done();
 }
 
 module.exports = {
+  generateRandomPages,
   generateRandomData,
 };
