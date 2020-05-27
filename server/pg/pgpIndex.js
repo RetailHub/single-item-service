@@ -39,12 +39,4 @@ module.exports = {
       })
       .catch((err) => console.error('ERROR INSERTING IMAGES: ', err));
   },
-
-  getSize(cb) {
-    db.one('SELECT itemId FROM items ORDER BY itemId DESC LIMIT 1')
-      .then((data) => {
-        const itemId = data.itemid;
-        cb(itemId);
-      });
-  },
 };
