@@ -11,11 +11,11 @@ jobs:
     steps:
       - checkout
       - new-relic/deployment:
-          app-name: '${$NEW_RELIC_APP_NAME}'
-          api-key: '${NEW_RELIC_TOKEN}'
-          revision: '${CIRCLE_SHA1}'
-          user: '${NEW_RELIC_USER}'
-          description: '${CIRCLE_SHA1}'
+          app-name: ${$NEW_RELIC_APP_NAME}
+          api-key: ${NEW_RELIC_TOKEN}
+          revision: ${CIRCLE_SHA1}
+          user: ${NEW_RELIC_USER}
+          description: ${CIRCLE_SHA1}
       - run: npm install
       - run: npm start
       - run:
