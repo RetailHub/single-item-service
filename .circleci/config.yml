@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  new-relic: configure/new-relic@0.1.4
+  new-relic: bankrate/new-relic@0.1.2
 jobs:
   build:
     docker:
@@ -11,11 +11,12 @@ jobs:
     steps:
       - checkout
       - new-relic/deployment:
-          app-name: ${$NEW_RELIC_APP_NAME}
-          api-key: ${NEW_RELIC_TOKEN}
-          revision: ${CIRCLE_SHA1}
-          user: ${NEW_RELIC_USER}
-          description: ${CIRCLE_SHA1}
+          app-id: '${NEW_RELIC_APP_ID}'
+          api-key: '${NEW_RELIC_API_KEY}'
+          changelog: changelog string
+          description: A deployment has completed
+          revision: '${CIRCLE_SHA1}'
+          user: '${CIRCLE_USERNAME}'
       - run: npm install
       - run: npm start
       - run:
