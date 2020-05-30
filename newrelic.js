@@ -10,7 +10,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['RetailHubSingleItems'],
+  app_name: ['SDCNGINX'],
   /**
    * Your New Relic license key.
    */
