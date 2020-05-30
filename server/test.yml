@@ -1,6 +1,9 @@
 config:
-  target: 'http://54.215.115.198:3001'
+  # target: 'http://54.215.115.198:3001'
+  target: 'http://localhost:3001'
   processor: "./stressgenerator.js"
+  http:
+    pool: 50
   phases:
     - duration: 10
       arrivalRate: 1
@@ -28,9 +31,11 @@ scenarios:
     weight: 90
     flow:
       - function: "generateRandomPages"
-      - get:
-          url: "/api/items/{{id}}"
-      - log: "Sent request to id: {{id}}"
+      - loop:
+        - get:
+            url: "/api/items/{{id}}"
+        - log: "Sent request to id: {{id}}"
+        count: 2
   - name: "posting new images"
     weight: 10
     flow:
