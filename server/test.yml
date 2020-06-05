@@ -1,6 +1,5 @@
 config:
-  # target: 'http://54.215.115.198:3001'
-  target: 'http://localhost:3001'
+  target: 'http://13.57.195.129:3001'
   processor: "./stressgenerator.js"
   http:
     pool: 50
