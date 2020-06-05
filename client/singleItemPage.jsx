@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import AltImageContainer from './components/altImageContainer.jsx';
 import MainImageContainer from './components/mainImageContainer.jsx';
 import ModalContainer from './components/modalContainer.jsx';
@@ -100,4 +99,4 @@ exit(){
   }
 }
 
-ReactDOM.render(<SingleItemPage/>,document.getElementById('singleItemPage'));
+export default SingleItemPage;

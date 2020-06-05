@@ -11,13 +11,13 @@ const AltImageContainer = (props) => {
         if(counter === 5){
           return (
             <span className={style.altImageLast}>
-              <img className={style.altImage}  value={counter} onMouseEnter={props.onHoverAlt} src ={image}/>
+              <img className={style.altImage}  value={counter} onMouseEnter={props.onHoverAlt} src ={image} alt="img" />
            </span>
           )
         } else {
           return (
             <span>
-              <img className={style.altImage} value={counter} onMouseEnter={props.onHoverAlt} src ={image}/>
+              <img className={style.altImage} value={counter} onMouseEnter={props.onHoverAlt} src ={image} alt="img" />
             </span>
           )
         }
