@@ -4,12 +4,12 @@ const path = require('path');
 
 
 module.exports = {
-  mode: "development",
-  entry: "./client/singleItemPage.jsx",
+  mode: 'production',
+  entry: './client/singleItemPage.jsx',
   output: {
-    path: path.resolve(__dirname, "public"),
+    path: path.resolve(__dirname, 'public'),
     filename: 'singleItemPage.js',
-    publicPath: "/public/",
+    publicPath: '/public/',
   },
   module: {
     rules: [
@@ -32,10 +32,30 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true,
+              minimize: true,
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.(jpe?g|png|gif)$/,
+        loader: 'url-loader',
+        options: {
+          // Inline files smaller than 10 kB (10240 bytes)
+          limit: 10 * 1024,
+        },
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        loader: 'image-webpack-loader',
+        // This will apply the loader before the other ones
+        enforce: 'pre',
+      },
     ]
-  }
+  },
+  optimization: {
+    concatenateModules: true,
+    nodeEnv: 'production',
+    minimize: true,
+  },
 }
