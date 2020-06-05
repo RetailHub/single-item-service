@@ -10,7 +10,7 @@ const options = {
 
 const client = pgp(options);
 const connection = {
-  host: 'localhost',
+  host: 'ec2-54-153-7-56.us-west-1.compute.amazonaws.com',
   port: 5432,
   database: 'items',
   user: 'me',
