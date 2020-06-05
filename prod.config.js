@@ -1,11 +1,11 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable linebreak-style */
 const path = require('path');
-
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './client/singleItemPage.jsx',
+  entry: './client/app.jsx',
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'singleItemPage.js',
@@ -32,7 +32,6 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true,
-              minimize: true,
             }
           }
         ]
@@ -57,5 +56,8 @@ module.exports = {
     concatenateModules: true,
     nodeEnv: 'production',
     minimize: true,
+    // minimizer: [new TerserPlugin({
+    //   parallel: true,
+    // })],
   },
 }
