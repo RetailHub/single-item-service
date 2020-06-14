@@ -36,3 +36,7 @@ npm run seedpg
 | **GET**   |       /api/items/:id        |  READ data and return        |
 | **PATCH** |       /api/items/:id        |  UPDATE item with new image  |
 | **DELETE**|       /api/items/:id        |  DELETE item based on ID     |
+
+## Authors
+* Marcus Barnes (https://github.com/marcusbarnesdeveloper)
+* Joshua Kim (https://github.com/joshskkim)
