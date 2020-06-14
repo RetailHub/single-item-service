@@ -8,25 +8,25 @@ npm install
 ```
 
 ## Running the tests
-
 ```sh
 npm run test
 ```
 
 ## Running server and client locally
-
 ```sh
 npm start
 npm run build
 ```
 
-## Seeding DB
+Visit your localhost at port 3001!
+Append /?id= with any number between 1 and 10,000,000 to your url to see a wide array of images.
 
+## Seeding DB
+> Run this after ensuring you have PostgreSQL installed
 ```sh
 npm run csv
 npm run connectpg
 npm run seedpg
-npm run seedcass
 ```
 
 ## CRUD Operations
